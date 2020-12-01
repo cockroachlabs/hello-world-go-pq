@@ -16,7 +16,7 @@ func printBalances(db *sql.DB) {
 		log.Fatal(err)
 	}
 	defer rows.Close()
-	fmt.Println("Initial balances:")
+	fmt.Println("Balances:")
 	for rows.Next() {
 		var id, balance int
 		if err := rows.Scan(&id, &balance); err != nil {
