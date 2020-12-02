@@ -16,7 +16,7 @@ func printBalances(db *sql.DB) {
 		log.Fatal(err)
 	}
 	defer rows.Close()
-	fmt.Println("Initial balances:")
+	fmt.Println("Balances:")
 	for rows.Next() {
 		var id, balance int
 		if err := rows.Scan(&id, &balance); err != nil {
@@ -51,7 +51,7 @@ func transferFunds(tx *sql.Tx, from int, to int, amount int) error {
 }
 
 func main() {
-	db, err := sql.Open("postgres", "postgresql://maxroach@localhost:26257/bank?sslmode=disable")
+	db, err := sql.Open("postgres", "postgres://{username}:{password}@{hostname}:{port}/bank?sslmode=require")
 	if err != nil {
 		log.Fatal("error connecting to the database: ", err)
 	}
