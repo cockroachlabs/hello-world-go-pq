@@ -71,12 +71,6 @@ func main() {
 	}
 
 	// Print out the balances before an account transfer (below).
-	rows, err := db.Query("SELECT id, balance FROM accounts")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer rows.Close()
-
 	printBalances(db)
 
 	// Run a transfer in a transaction.
@@ -89,5 +83,6 @@ func main() {
 		log.Fatal("error: ", err)
 	}
 
+	// Print out the balances after an account transfer.
 	printBalances(db)
 }
