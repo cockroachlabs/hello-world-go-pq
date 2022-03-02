@@ -13,5 +13,3 @@ To run the code:
 1. Update the connection string passed to `sql.Open()` with the correct connection values.
 
 1. In your terminal, from this directory: `go mod init basic-sample && go run main.go`
-
-**Note:** The `lib/pq` library is currently in [*maintenance mode*](https://github.com/lib/pq#status). As a result, Cockroach Labs cannot guarantee full compatibility with the library.
